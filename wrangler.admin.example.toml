@@ -1,0 +1,16 @@
+name = "mediagrab-admin-api"
+main = "src/admin-api.js"
+compatibility_date = "2026-10-25"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "YOUR_EXISTING_D1_DATABASE_NAME"
+database_id = "YOUR_D1_DATABASE_ID"
+
+[vars]
+PANEL_ORIGIN = "https://YOUR-PAGES-PROJECT.pages.dev"
+
+# Set as Worker secrets in Cloudflare dashboard, never commit:
+# ADMIN_USERNAME
+# ADMIN_PASSWORD
+# SESSION_SECRET (random 32+ byte value)
