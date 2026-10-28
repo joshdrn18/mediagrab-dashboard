@@ -30,7 +30,8 @@ const cookie=(value,age)=>`mg_session=${value}; Path=/; HttpOnly; Secure; SameSi
 export default { async fetch(request,env) {
   const h=cors(request,env), url=new URL(request.url);
   if(request.method==="OPTIONS")return new Response(null,{status:204,headers:h});
-  if(url.pathname==="/health")return json({ok:true,service:"mediagrab-admin-api"},200,h);
+  if(request.method==="GET"&&url.pathname==="/")return json({ok:true,service:"mediagrab-admin-api",status:"online"},200,h);
+  if(request.method==="GET"&&url.pathname==="/health")return json({ok:true,service:"mediagrab-admin-api",status:"healthy"},200,h);
   if(url.pathname==="/admin-api/login"&&request.method==="POST"){
     let body;try{body=await request.json()}catch{return json({error:"Invalid JSON"},400,h)}
     if(!env.ADMIN_USERNAME||!env.ADMIN_PASSWORD||!env.SESSION_SECRET)return json({error:"Admin secrets are not configured"},500,h);
