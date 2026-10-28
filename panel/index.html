@@ -36,7 +36,7 @@
 <div class="foot">MediaGrab Control Center · Private admin panel</div></main>
 <script>
 /* Set to the deployed admin Worker origin. */
-const API_BASE = "";
+const API_BASE = "https://mediagrab-admin-api.joshdrn18.workers.dev";
 const $=id=>document.getElementById(id);
 function screen(on){$("loginScreen").classList.toggle("hidden",on);$("dashboard").classList.toggle("hidden",!on)}
 async function api(path,opts={}){if(!API_BASE)throw new Error("API_BASE is not configured. Follow README.md.");const r=await fetch(API_BASE+path,{...opts,credentials:"include",headers:{"Content-Type":"application/json",...(opts.headers||{})}});const d=await r.json().catch(()=>({error:"Invalid API response"}));if(!r.ok)throw new Error(d.error||`Request failed (${r.status})`);return d}
