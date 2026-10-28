@@ -1,0 +1,9 @@
+
+name = "mediagrab-admin-api"
+main = "src/admin-api.js"
+compatibility_date = "2026-10-28"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "DBN"
+database_id = "abefadd4-62c2-4301-a79c-8da8b049c09c"
